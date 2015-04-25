@@ -1,10 +1,32 @@
-mixin list(records)
-  .list-group
-    - for rec in records
-      if rec.title
-        a.list-group-item(href='#')= rec.title
-      else
-        a.list-group-item(href='#') (untitled)
-          h4.list-group-item-heading List group item heading
-          p.list-group-item-text ...
+mixin list()
+  .list-group.list-special
+    a.list-group-item(href='#') (untitled)
+      h4.list-group-item-heading List group item heading
+      p.list-group-item-text ...
+    a.list-group-item(href='#') (untitled)
+      h4.list-group-item-heading List group item heading
+      p.list-group-item-text ...
+    a.list-group-item(href='#') (untitled)
+      h4.list-group-item-heading List group item heading
+      p.list-group-item-text ...
+    a.list-group-item(href='#') (untitled)
+      h4.list-group-item-heading List group item heading
+      p.list-group-item-text ...
+    a.list-group-item(href='#') (untitled)
+      h4.list-group-item-heading List group item heading
+      p.list-group-item-text ...
+    a.list-group-item(href='#') (untitled)
+      h4.list-group-item-heading List group item heading
+      p.list-group-item-text ...
 
+//
+  mixin list(records)
+    .list-group
+      - for rec in records
+        if rec.title
+          a.list-group-item(href='#')= rec.title
+        else
+          a.list-group-item(href='#') (untitled)
+            h4.list-group-item-heading List group item heading
+            p.list-group-item-text ...
+  

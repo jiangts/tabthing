@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title Ideas
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(href='/components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+
+    style(type='text/css').
+      /* CSS used here will be applied after bootstrap.css */
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+      .container-fluid.content {
+        padding-top: 50px;
+        height: 100%;
+      }
+      .container-fluid.content>.row {
+        height: 100%;
+      }
+      .mainview, .navview, .subview {
+        height: 100%;
+        overflow: auto;
+      }
+      .navview, .subview {
+        background-color: #eee;
+      }
+      @media (max-width: 767px) {
+        .mainview, .navview, .subview {
+          height: auto;
+        }
+      }
+    script(src='/components/jquery/dist/jquery.min.js')
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+  block js
+  block css
+
+  body
+    .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        block header
+    .container-fluid.content
+      // Example row of columns
+      .row
+        .col-sm-2.navview
+          block navview
+        .col-sm-5.mainview
+          block mainview
+        .col-sm-5.subview
+          block subview
+

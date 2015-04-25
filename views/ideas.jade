@@ -1,0 +1,61 @@
+extends layouts/section
+
+include mixins/list.jade
+
+block js
+  //script(src='/components/jquery.hotkeys/jquery.hotkeys.js')
+  script(src='/components/marked/marked.min.js')
+  script(src='/components/bootstrap-markdown/js/bootstrap-markdown.js')
+
+block css
+  link(href='/components/bootstrap-markdown/css/bootstrap-markdown.min.css', rel='stylesheet')
+  link(href='/css/sections.css', rel='stylesheet')
+
+block header
+  .navbar-header
+    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand(href='#') Navbar
+  .navbar-collapse.collapse
+    form.navbar-form.navbar-right(role='form')
+      .form-group
+        input.form-control(type='text', placeholder='Email')
+      .form-group
+        input.form-control(type='password', placeholder='Password')
+      button.btn.btn-success(type='submit') Sign in
+
+block navview
+  +list()
+  //
+    h2 Navigation
+    ul
+      li
+        span.glyphicon.glyphicon-envelope  Email
+      li
+        span.glyphicon.glyphicon-pencil  Edit
+      li
+        span.glyphicon.glyphicon-glass  Party
+
+block mainview
+  textarea.editor
+  script.
+    $(".editor").markdown({
+      autofocus: true, 
+      savable: true,
+      height: $(".mainview").height() - 2,
+      hiddenButtons: 'cmdPreview',
+      onChange: function(editor) {
+        $(".subview").html(editor.parseContent());
+      },
+      onSave: function(editor) {
+        storage.setObject('1429948164997', { text: editor.getContent() });
+      },
+      onShow: function(editor) {
+        editor.setContent(storage.getObject('1429948164997').text);
+      }
+    });
+
+block subview

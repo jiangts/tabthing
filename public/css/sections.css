@@ -1,0 +1,17 @@
+.navview {
+  padding: 0;
+}
+.mainview {
+  padding: 0;
+}
+.subview {
+  background-color: white;
+}
+.list-special .list-group-item:first-child {
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+}
+.list-special .list-group-item:last-child {
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}

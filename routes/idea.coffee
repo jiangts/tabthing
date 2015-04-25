@@ -3,7 +3,7 @@ router = express.Router()
 
 # GET home page. 
 router.get "/", (req, res) ->
-  res.render "sections",
+  res.render "ideas",
     title: "Express"
 
 module.exports = router
