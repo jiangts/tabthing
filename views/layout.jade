@@ -11,10 +11,12 @@ html(lang='en')
       link(href='/components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
     block js
       script(src='http://localhost:35729/livereload.js')
+      script
+        include:coffee ../public/coffee/tools.coffee
+      // jQuery (necessary for Bootstrap's JavaScript plugins)
+      script(src='/components/jquery/dist/jquery.min.js')
+      // Include all compiled plugins (below), or include individual files as needed
+      script(src='/components/bootstrap/dist/js/bootstrap.min.js')
   body
     block content
 
-  // jQuery (necessary for Bootstrap's JavaScript plugins)
-  script(src='/components/jquery/dist/jquery.min.js')
-  // Include all compiled plugins (below), or include individual files as needed
-  script(src='/components/bootstrap/dist/js/bootstrap.min.js')

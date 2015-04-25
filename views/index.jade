@@ -1,5 +1,31 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  link(href='/css/columns.css', rel='stylesheet')
+  //script(src='/components/jquery.hotkeys/jquery.hotkeys.js')
+  script(src='/components/marked/marked.min.js')
+  script(src='/components/bootstrap-markdown/js/bootstrap-markdown.js')
+  link(href='/components/bootstrap-markdown/css/bootstrap-markdown.min.css', rel='stylesheet')
+
+  .container
+    .row
+      .col-md-6#edit-pane
+        textarea.editor
+        script.
+          $(".editor").markdown({
+            autofocus: true, 
+            savable: true,
+            height: $("#edit-pane").height() - 2,
+            hiddenButtons: 'cmdPreview',
+            onChange: function(editor) {
+              $("#content-pane").html(editor.parseContent());
+            },
+            onSave: function(editor) {
+              
+              console.log('hi', editor.getContent());
+              //$("#content-pane").html(editor.parseContent());
+            }
+          });
+      .col-md-6#content-pane(style="padding:15px")
+
+

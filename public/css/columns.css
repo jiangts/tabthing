@@ -1,0 +1,29 @@
+html,body,.container
+{
+    overflow: hidden;
+    height:100%;
+}
+.container
+{
+    display:table;
+    width: 100%;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.row
+{
+    height: 100%;
+    display: table-row;
+}
+.col-md-6
+{
+    padding: 0;
+    display: table-cell;
+    height: 100%;
+}
+#content-pane
+{
+    overflow: scroll;
+}
