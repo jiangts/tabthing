@@ -1,0 +1,116 @@
+html(lang='en')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title Ideas
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(href='/components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    //if lt IE 9
+    //  script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
+    //link(rel='shortcut icon', href='/bootstrap/img/favicon.ico')
+    //link(rel='apple-touch-icon', href='/bootstrap/img/apple-touch-icon.png')
+    //link(rel='apple-touch-icon', sizes='72x72', href='/bootstrap/img/apple-touch-icon-72x72.png')
+    //link(rel='apple-touch-icon', sizes='114x114', href='/bootstrap/img/apple-touch-icon-114x114.png')
+
+    style(type='text/css').
+      /* CSS used here will be applied after bootstrap.css */
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+      .container-fluid.content {
+        padding-top: 50px;
+        height: 100%;
+      }
+      .container-fluid.content>.row {
+        height: 100%;
+      }
+      .mainview, .navview, .subview {
+        height: 100%;
+        overflow: auto;
+      }
+      .navview, .subview {
+        background-color: #eee;
+      }
+      @media (max-width: 767px) {
+        .mainview, .navview, .subview {
+          height: auto;
+        }
+      }
+
+  body
+    .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Navbar
+        .navbar-collapse.collapse
+          form.navbar-form.navbar-right(role='form')
+            .form-group
+              input.form-control(type='text', placeholder='Email')
+            .form-group
+              input.form-control(type='password', placeholder='Password')
+            button.btn.btn-success(type='submit') Sign in
+        // /.navbar-collapse
+    .container-fluid.content
+      // Example row of columns
+      .row
+        .col-sm-2.navview
+          h2 Navigation
+          ul
+            li
+              span.glyphicon.glyphicon-envelope  Email
+            li
+              span.glyphicon.glyphicon-pencil  Edit
+            li
+              span.glyphicon.glyphicon-glass  Party
+        .col-sm-7.mainview
+          h2 Main View
+          #carousel-example-generic.carousel.slide(data-ride='carousel')
+            ol.carousel-indicators
+              li(data-target='#carousel-example-generic', data-slide-to='0')
+              li(data-target='#carousel-example-generic', data-slide-to='1')
+              li.active(data-target='#carousel-example-generic', data-slide-to='2')
+            .carousel-inner
+              .item
+                img(data-src='holder.js/900x500/auto/#777:#555/text:First slide', alt='First slide', src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNTU1O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+')
+              .item.active.left
+                img(data-src='holder.js/900x500/auto/#666:#444/text:Second slide', alt='Second slide', src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNDQ0O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+U2Vjb25kIHNsaWRlPC90ZXh0Pjwvc3ZnPg==')
+              .item.next.left
+                img(data-src='holder.js/900x500/auto/#555:#333/text:Third slide', alt='Third slide', src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojMzMzO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+VGhpcmQgc2xpZGU8L3RleHQ+PC9zdmc+')
+            a.left.carousel-control(href='#carousel-example-generic', role='button', data-slide='prev')
+              span.glyphicon.glyphicon-chevron-left
+            a.right.carousel-control(href='#carousel-example-generic', role='button', data-slide='next')
+              span.glyphicon.glyphicon-chevron-right
+          p
+            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+          p
+            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+          p
+            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+          p
+            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+          p
+            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        .col-sm-3.subview
+          h2 Sub View
+          p
+            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+          p
+            a.btn.btn-default(href='#', role='button') View details »
+          p
+            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+          p
+            a.btn.btn-default(href='#', role='button') View details »
+          p
+            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+          p
+            a.btn.btn-default(href='#', role='button') View details »
+
+    script(src='/components/jquery/dist/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js')

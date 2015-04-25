@@ -17,11 +17,14 @@ html,body,.container
     height: 100%;
     display: table-row;
 }
-.col-md-6
+.tall
 {
-    padding: 0;
-    display: table-cell;
+    position: relative;
     height: 100%;
+}
+.cell
+{
+    display: table-cell;
 }
 #content-pane
 {

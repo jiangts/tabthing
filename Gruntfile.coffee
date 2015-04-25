@@ -24,13 +24,18 @@ module.exports = (grunt) ->
       server:
         files: [
           "bin/www"
-          "app.js"
-          "routes/*.js"
+          "app.coffee"
+          "routes/*.coffee"
         ]
         tasks: [
           "develop"
           "delayed-livereload"
         ]
+
+      coffee:
+        files: ["public/coffee/*.coffee"]
+        options:
+          livereload: reloadPort
 
       js:
         files: ["public/js/*.js"]

@@ -1,5 +1,7 @@
 extends layout
 
+include mixins/list.jade
+
 block content
   link(href='/css/columns.css', rel='stylesheet')
   //script(src='/components/jquery.hotkeys/jquery.hotkeys.js')
@@ -9,23 +11,30 @@ block content
 
   .container
     .row
-      .col-md-6#edit-pane
-        textarea.editor
-        script.
-          $(".editor").markdown({
-            autofocus: true, 
-            savable: true,
-            height: $("#edit-pane").height() - 2,
-            hiddenButtons: 'cmdPreview',
-            onChange: function(editor) {
-              $("#content-pane").html(editor.parseContent());
-            },
-            onSave: function(editor) {
-              
-              console.log('hi', editor.getContent());
-              //$("#content-pane").html(editor.parseContent());
-            }
-          });
-      .col-md-6#content-pane(style="padding:15px")
+      .col-md-2.tall(style="padding:0px")
+        //+list()
 
+      .col-md-5.tall.cell#edit-pane
+        form.tall
+          input(name="title" type="text" placeHolder="Title")
+          .tall#editor-wrapper
+            textarea.editor
+            script.
+              $(".editor").markdown({
+                autofocus: true, 
+                savable: true,
+                height: $("#editor-wrapper").height() - 2,
+                hiddenButtons: 'cmdPreview',
+                onChange: function(editor) {
+                  $("#content-pane").html(editor.parseContent());
+                },
+                onSave: function(editor) {
+                  storage.setObject('1429948164997', { text: editor.getContent() });
+                },
+                onShow: function(editor) {
+                  editor.setContent(storage.getObject('1429948164997').text);
+                }
+              });
+      .col-md-5.tall.cell#content-pane(style="padding:15px")
+      
 
